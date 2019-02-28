@@ -2,9 +2,10 @@
 This is my first successful program where I call methods! 
 
 There is a menu method and four primary methods for performing math functions (corresponding to each part of the assignment). 
-An additional "helper" method is used to convert raw test scores into a letter grade average for the scores entered. 
-The requirements are listed below. 
+An additional "helper" method converts raw test scores into letter grades for the test scores enteres. It is called within three of the primary methods. 
 
+
+The requirements are listed below. 
 ********************
 1. Basic Difficulty
 Sum of numbers
