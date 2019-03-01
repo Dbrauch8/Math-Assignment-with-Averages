@@ -30,4 +30,3 @@ Average a non-specific number of scores
 Create a console application that will accept a number test scores (as calculated by the number of scores actually entered) 
 between 0 and 100, average them, and report a letter grade for the average based on the usual scale. 
 For example, a teacher will input any number test scores, and see the average numerical grade and the letter grade.
-
