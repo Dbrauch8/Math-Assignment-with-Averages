@@ -28,7 +28,7 @@ namespace Ex2A_testScores
 
             if (userValue == "1")
             {
-                string message = "You have selected to add numbers together";
+                string message = "You have selected to add numbers together.";
                 Console.WriteLine(message);
                 addNumbers();
                 return false;
@@ -82,7 +82,12 @@ namespace Ex2A_testScores
             }
             Console.Clear();
             Console.WriteLine("The sum of your numbers is: " + sum);
+            Console.WriteLine();
+            Console.WriteLine("Press enter to return to the Main Menu.");
             Console.ReadLine();
+
+            Console.Clear();
+            MainMenu();
         }
 
         static void averageTen()
@@ -101,10 +106,16 @@ namespace Ex2A_testScores
                 sum += num;
                 avg = sum / count;
                 count++;
+            }
                 Console.Clear();
                 Console.WriteLine("The average of your raw scores is: " + Math.Round(avg, 2) + "%" + " with a letter grade of: " + LetterGrade(avg));
                 Console.ReadLine();
-            }
+                Console.WriteLine();
+                Console.WriteLine("Press enter to return to the Main Menu.");
+                Console.ReadLine();
+
+            Console.Clear();
+            MainMenu();
         }
         static void averageNTests()
         {
@@ -122,12 +133,25 @@ namespace Ex2A_testScores
                 Console.WriteLine("Please enter a test score between 0 and 100: ");
                 num = double.Parse(Console.ReadLine());
                 sum += num;
-                avg = sum / t;
                 count++;
+                avg = sum / t;
+                if (count < t)
+                {
+                    continue;
+                }
+                else
+                {
+                    break;
+                }
             }
             Console.Clear();
             Console.WriteLine("The average of your raw scores is: " + Math.Round(avg, 2) + "%" + " with a letter grade of: " + LetterGrade(avg));
+            Console.WriteLine();
+            Console.WriteLine("Press enter to return to the Main Menu.");
             Console.ReadLine();
+
+            Console.Clear();
+            MainMenu();
         }
 
         static void YouRLazy()
@@ -135,23 +159,38 @@ namespace Ex2A_testScores
             double count = 0;
             double sum = 0;
             double avg = 0;
-            double numb = 0;
-
-            while (numb >= 0 && numb <= 100)
+            double num = 0;
+            
+            while (num >= 0 && num <= 100)
             {
-            Console.WriteLine("Please enter a test score between 0 and 100: ");
-                numb = double.Parse(Console.ReadLine());
-                sum += numb;
-                count++;
-                avg = sum / count;
+                count += 1;
+                Console.WriteLine("Please enter a test score between 0 and 100: ");
+                num = double.Parse(Console.ReadLine());
+                    sum += num;
+                    avg = sum / count;
 
+                    if (num < 0 || num > 100)
+                    {
+                        sum = sum - num;
+                        count = count - 1;
+                        avg = sum / count;
+                        break;
+                    }
+                    else
+                    {
+                        continue;
+                    }
             }                    
             Console.Clear();
             Console.WriteLine("The average of your raw scores is: " + Math.Round(avg, 2) + "%" + " with a letter grade of: " + LetterGrade(avg));
             Console.ReadLine();
+            Console.WriteLine();
+            Console.WriteLine("Press enter to return to the Main Menu.");
+            Console.ReadLine();
+
+            Console.Clear();
             MainMenu();
         }
-
         public static string LetterGrade(double g)
         {
             if (g >= 90)
@@ -177,6 +216,7 @@ namespace Ex2A_testScores
         }     
 
     }
+
 }
 
 
