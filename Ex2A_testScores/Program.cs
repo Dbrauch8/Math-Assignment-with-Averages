@@ -153,7 +153,6 @@ namespace Ex2A_testScores
             Console.Clear();
             MainMenu();
         }
-
         static void YouRLazy()
         {
             double count = 0;
@@ -199,7 +198,6 @@ namespace Ex2A_testScores
             MainMenu();
             Console.ReadLine();
         }
-
         public static string LetterGrade(double g)
         {
             if (g >= 90)
