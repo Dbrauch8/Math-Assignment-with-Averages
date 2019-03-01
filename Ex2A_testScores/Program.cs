@@ -33,12 +33,12 @@ namespace Ex2A_testScores
                 addNumbers();
                 return false;
             }
-           
+
             else if (userValue == "2")
             {
                 string message = "Average ten (10) exam scores to determine raw and letter grades.";
                 Console.WriteLine(message);
-                averageTen(); 
+                averageTen();
                 return false;
             }
 
@@ -46,10 +46,10 @@ namespace Ex2A_testScores
             {
                 string message = "Average up to 100 exam scores to determine raw and letter grades.";
                 Console.WriteLine(message);
-                averageNTests(); 
+                averageNTests();
                 return false;
             }
-            
+
             else if (userValue == "4")
             {
                 string message = "Enter exam scores and let me count how many to determine the raw and letter grades.";
@@ -97,7 +97,7 @@ namespace Ex2A_testScores
             double num = 0;
             double i = 0;
             double avg = 0;
-            
+
             for (i = 0; i < 10; i++)
             {
                 Console.WriteLine("Please enter a test score between 0 and 100: ");
@@ -107,12 +107,12 @@ namespace Ex2A_testScores
                 avg = sum / count;
                 count++;
             }
-                Console.Clear();
-                Console.WriteLine("The average of your raw scores is: " + Math.Round(avg, 2) + "%" + " with a letter grade of: " + LetterGrade(avg));
-                Console.ReadLine();
-                Console.WriteLine();
-                Console.WriteLine("Press enter to return to the Main Menu.");
-                Console.ReadLine();
+            Console.Clear();
+            Console.WriteLine("The average of your raw scores is: " + Math.Round(avg, 2) + "%" + " with a letter grade of: " + LetterGrade(avg));
+            Console.ReadLine();
+            Console.WriteLine();
+            Console.WriteLine("Press enter to return to the Main Menu.");
+            Console.ReadLine();
 
             Console.Clear();
             MainMenu();
@@ -160,12 +160,14 @@ namespace Ex2A_testScores
             double sum = 0;
             double avg = 0;
             double num = 0;
-            
-            while (num >= 0 && num <= 100)
+
+            try
             {
-                count += 1;
-                Console.WriteLine("Please enter a test score between 0 and 100: ");
-                num = double.Parse(Console.ReadLine());
+                while (num >= 0 && num <= 100)
+                {
+                    count += 1;
+                    Console.WriteLine("Please enter a test score between 0 and 100 (press enter on an empty line to exit and calculate): ");
+                    num = double.Parse(Console.ReadLine());
                     sum += num;
                     avg = sum / count;
 
@@ -180,17 +182,24 @@ namespace Ex2A_testScores
                     {
                         continue;
                     }
-            }                    
-            Console.Clear();
-            Console.WriteLine("The average of your raw scores is: " + Math.Round(avg, 2) + "%" + " with a letter grade of: " + LetterGrade(avg));
-            Console.ReadLine();
-            Console.WriteLine();
-            Console.WriteLine("Press enter to return to the Main Menu.");
-            Console.ReadLine();
-
-            Console.Clear();
+                }
+            }
+            catch
+            {
+                Console.WriteLine("You have decided to calculate your total or selected an invalid input. the average of your correctly entered inputs are totalled below.");
+            }
+            finally
+            {
+                Console.WriteLine("The average of your raw scores is: " + Math.Round(avg, 2) + "%" + " with a letter grade of: " + LetterGrade(avg));
+                Console.ReadLine();
+                Console.WriteLine();
+                Console.WriteLine("Press enter to return to the Main Menu.");
+                Console.Clear();
+            }
             MainMenu();
+            Console.ReadLine();
         }
+
         public static string LetterGrade(double g)
         {
             if (g >= 90)
